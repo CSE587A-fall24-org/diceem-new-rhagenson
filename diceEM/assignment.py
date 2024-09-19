@@ -112,6 +112,7 @@ def e_step(experiment_data: List[NDArray[np.int_]],
 
     # PUT YOUR CODE HERE, FOLLOWING THE DIRECTIONS ABOVE
 
+
     return expected_counts
 
 
@@ -137,7 +138,6 @@ def m_step(expected_counts_by_die: NDArray[np.float_]):
     updated_type_1_frequency = np.sum(expected_counts_by_die[0])
     updated_type_2_frequency = np.sum(expected_counts_by_die[1])
 
-    # REPLACE EACH NONE BELOW WITH YOUR CODE.
     # Compute new priors based on number of rolls of each die type
     # (Rolls D1, ..., Rolls Dn) / Total Rolls
     summary_of_rolls = [np.sum(x) for x in expected_counts_by_die]
@@ -146,7 +146,7 @@ def m_step(expected_counts_by_die: NDArray[np.float_]):
     # Pr(Faces) on Dn = Dn count / Dn total
     probability_of_faces = [x / np.sum(x) for x in expected_counts_by_die]
 
-    # Set variables that were provided
+    # REPLACE EACH NONE BELOW WITH YOUR CODE.
     updated_priors = summary_of_rolls / sum(summary_of_rolls)
     updated_type_1_face_probs = probability_of_faces[0]
     updated_type_2_face_probs = probability_of_faces[1]
