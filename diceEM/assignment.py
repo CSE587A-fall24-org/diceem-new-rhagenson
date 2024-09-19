@@ -111,7 +111,11 @@ def e_step(experiment_data: List[NDArray[np.int_]],
     # counts for each type over all the draws.  
 
     # PUT YOUR CODE HERE, FOLLOWING THE DIRECTIONS ABOVE
-
+    # dice_posterior is defined via obfuscation and will be loaded
+    # at runtime
+    # Definition gotten via RELP via python -i diceEM/assignment.py then help(dice_posterior)
+    # dice_posterior(sample_draw: numpy.ndarray[typing.Any, numpy.dtype[numpy.int64]], 
+    #                bag_of_dice: cse587Autils.DiceObjects.BagOfDice.BagOfDice) -> float
 
     return expected_counts
 
