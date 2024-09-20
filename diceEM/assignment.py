@@ -117,6 +117,24 @@ def e_step(experiment_data: List[NDArray[np.int_]],
     # dice_posterior(sample_draw: numpy.ndarray[typing.Any, numpy.dtype[numpy.int64]], 
     #                bag_of_dice: cse587Autils.DiceObjects.BagOfDice.BagOfDice) -> float
 
+    # Iterate over draws.
+    for draw in experiment_data:
+        # For each draw, calculate the the posterior probability
+        # that each die type was rolled on that draw by calling dice_posterior.
+        d1_posterior = dice_posterior(draw, bag_of_dice)
+        d2_posterior = 1 - d1_posterior
+
+        # Then combine the posterior for each die type with the observed counts for 
+        # the current draw to get the expected counts for each die type on this draw.
+        d1_expectation = draw * d1_posterior
+        d2_expectation = draw * d2_posterior
+
+        # To get the total expected counts for each type, you sum the expected
+        # counts for each type over all the draws.
+        # print(f"Counts are {expected_counts}")
+        expected_counts[0] = expected_counts[0] + d1_expectation
+        expected_counts[1] = expected_counts[1] + d2_expectation
+    
     return expected_counts
 
 
